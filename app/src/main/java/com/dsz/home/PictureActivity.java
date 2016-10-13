@@ -11,13 +11,16 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
+import com.dsz.utils.ScalableImageView;
+
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 public class PictureActivity extends Activity {
 	public final static String CONTROLER_POSITION = "/remoteCamera/controler/";
-	ImageView previewImage = null;
+//	ImageView previewImage = null;
+	ScalableImageView picture_Msiv_picture;
 	private String fileName = null;
 	Intent intent = null;
 	@Override
@@ -31,8 +34,8 @@ public class PictureActivity extends Activity {
         System.out.println(">>>>>>>" + fileName);
         setContentView(R.layout.activity_picture);
         
-        previewImage = (ImageView)findViewById(R.id.previewImage);
-
+//        previewImage = (ImageView)findViewById(R.id.previewImage);
+		picture_Msiv_picture = (ScalableImageView)findViewById(R.id.picture_Msiv_picture);
 		FileInputStream f = null;
 		try {
 			System.out.println("1111111111");
@@ -50,8 +53,10 @@ public class PictureActivity extends Activity {
 		BufferedInputStream bis = new BufferedInputStream(f); 
 		bm = BitmapFactory.decodeStream(bis, null, options); 
 		if(bm != null){
-            previewImage.setImageBitmap(bm);
-            previewImage.setVisibility(View.VISIBLE);
+//            previewImage.setImageBitmap(bm);
+//            previewImage.setVisibility(View.VISIBLE);
+			picture_Msiv_picture.setImageBitmap(bm);
+			picture_Msiv_picture.setVisibility(View.VISIBLE);
 		}
 	}
 }

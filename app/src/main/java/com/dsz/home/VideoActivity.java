@@ -24,6 +24,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -45,7 +46,7 @@ import java.util.Date;
 public class VideoActivity extends Activity {
 	private String TAG = "VideoActivity";
 	public final static String CONTROLER_POSITION = "/remoteCamera/controler/";		//文件路径
-	private RelativeLayout mRelativeLayout;		//布局
+	private LinearLayout mRelativeLayout;		//布局
 	private Socket socket = null;						//socket对象
 	private String buffer = "";							//（好像没用到）
 	private MySurfaceView mySurfaceView;							//自定义SurfaceView
@@ -78,7 +79,7 @@ public class VideoActivity extends Activity {
 		setContentView(R.layout.activity_video);
 
 		mySurfaceView =(MySurfaceView) this.findViewById(R.id.mySurfaceViewVideo1);
-		mRelativeLayout =(RelativeLayout) this.findViewById(R.id.relativeLayout);
+		mRelativeLayout =(LinearLayout) this.findViewById(R.id.relativeLayout);
 		String VideoIP="http://" + ip + ":8080/?action=stream";	//需要服务的相机ip地址
 		mySurfaceView.GetVideoIP(VideoIP);
 		findView();
